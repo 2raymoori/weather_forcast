@@ -1,10 +1,18 @@
 import Image from "next/image";
-import {dailyForcast} from "@/actions/weatherForcast";
+import WeatherCard from "@/Components/WeatherCard";
+import {hourExtractor} from "@/Utils/helpers";
+import AirQuality from "@/Components/AirQuality";
+import {dailyForcast, hourlylyForcast} from "@/actions/weatherForcast";
+import SeverityIndicator from "@/Components/SI";
+import ProgressBarWithPointer from "@/Components/ProgressBarPointer";
+import DailyDisplay from "@/Components/DailyDisplay";
+import UvCard from "@/Components/UvCArd";
 
 export default async function Home() {
-    const hourlyForcastData = await dailyForcast("potsdam");
+    const dailyForecastData = await  dailyForcast("potsdam");
+    const hourlyForcastData = await hourlylyForcast("potsdam");
   return (
-      <main className={"border-2 border-orange-500 max-w-5xl m-auto h-[500px] grid grid-cols-6 gap-2"}>
+      <main className={"border-2 border-orange-500 max-w-5xl m-auto grid grid-cols-6 gap-2"}>
           <section className={"border-4 border-blue-500 col-start-1 col-end-7  bg-orange-500  justify-center"}>
               <div className={"border-white border-2 text-center"}>
                   <p>Potsdam</p>
@@ -16,23 +24,40 @@ export default async function Home() {
           <section className={"border-4 border-blue-500 col-start-1 col-end-3"}>
               <p>Row 2</p>
               <p>{hourlyForcastData.length}</p>
+                <AirQuality level={50} />
 
           </section>
           <section className={"border-4 border-blue-500 col-start-3 col-end-7"}>
-              {
-                  hourlyForcastData.slice(0,18).map(e=>{
-                      return(
-                          <p>{e.temperature} :: {e.date}</p>
-                      )
-                  })
-              }
+              <p>HOURLY FORECAST</p>
+              <div className={"flex justify-around flex-wrap"}>
+                  {
+                      hourlyForcastData.slice(0,18).map(e=>{
+                          return(
+                              <WeatherCard key={e.date} hour={hourExtractor(e.date)} temperature={e.temperature} />
+
+                          )
+                      })
+                  }
+              </div>
 
           </section>
           <section className={"border-4 border-blue-500 col-start-1 col-end-3"}>
-              <p>Column 1</p>
+              <div>
+                  {dailyForecastData.map(e=>{
+                      return(
+                          <DailyDisplay key={e.day} date={e.day} minTemp={e.temperature_min} maxTemp={e.temperature_max} />
+                      )
+                  })}
+              </div>
           </section>
           <section className={"border-4 border-blue-500 col-start-3 col-end-5"}>
-              <p>Column 2</p>
+              <div>
+                  <p>Column 2</p>
+                  <ProgressBarWithPointer />
+                  <UvCard description={"Low for the rest of the day."} uvValue={hourlyForcastData[0].uv_index} title={"UV INDEX"} showProgressBar={true} />
+                  <UvCard description={"The dew point is -5 right now."} uvValue={`${dailyForecastData[0].humidity}%`} title={" HUMIDITY"} />
+                  <UvCard uvValue={`${dailyForecastData[0].visibility} KM`}  title={"VISIBILITY"} />
+              </div>
           </section>
           <section className={"border-4 border-blue-500 col-start-5 col-end-7"}>
               <p>Column 3</p>
