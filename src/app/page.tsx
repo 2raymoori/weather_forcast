@@ -7,10 +7,15 @@ import SeverityIndicator from "@/Components/SI";
 import ProgressBarWithPointer from "@/Components/ProgressBarPointer";
 import DailyDisplay from "@/Components/DailyDisplay";
 import UvCard from "@/Components/UvCArd";
+import Compass from "@/Components/Compass";
+
+
 
 export default async function Home() {
     const dailyForecastData = await  dailyForcast("potsdam");
     const hourlyForcastData = await hourlylyForcast("potsdam");
+
+
   return (
       <main className={"border-2 border-orange-500 max-w-5xl m-auto grid grid-cols-6 gap-2"}>
           <section className={"border-4 border-blue-500 col-start-1 col-end-7  bg-orange-500  justify-center"}>
@@ -39,7 +44,6 @@ export default async function Home() {
                       })
                   }
               </div>
-
           </section>
           <section className={"border-4 border-blue-500 col-start-1 col-end-3"}>
               <div>
@@ -50,19 +54,17 @@ export default async function Home() {
                   })}
               </div>
           </section>
-          <section className={"border-4 border-blue-500 col-start-3 col-end-5"}>
-              <div>
-                  <p>Column 2</p>
-                  <ProgressBarWithPointer />
+          <section className={"border-4 border-blue-500 col-start-3 col-end-7"}>
+              <div className={"grid grid-cols-3 gap-2"}>
+                  <Compass windData={dailyForecastData[0].wind} />
                   <UvCard description={"Low for the rest of the day."} uvValue={hourlyForcastData[0].uv_index} title={"UV INDEX"} showProgressBar={true} />
                   <UvCard description={"The dew point is -5 right now."} uvValue={`${dailyForecastData[0].humidity}%`} title={" HUMIDITY"} />
-                  <UvCard uvValue={`${dailyForecastData[0].visibility} KM`}  title={"VISIBILITY"} />
+                  <UvCard uvValue={`${dailyForecastData[0].visibility} KM`} description={"Perfectly clear view"}  title={"VISIBILITY"} />
+                  <UvCard uvValue={dailyForecastData[0].feels_like} description={"Wind is making it feel colder"} title={"FEELS LIKE"} />
+                  <UvCard uvValue={dailyForecastData[0].precipitation.total+' MM'} description={"Wind is making it feel colder"} title={"FEELS LIKE"} />
+
               </div>
           </section>
-          <section className={"border-4 border-blue-500 col-start-5 col-end-7"}>
-              <p>Column 3</p>
-          </section>
-
       </main>
   );
 }
