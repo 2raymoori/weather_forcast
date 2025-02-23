@@ -5,5 +5,5 @@ export const hourlylyForcast = async (placeName:string)=>{
 }
 
 export const dailyForcast = async(placeName:string)=>{
-        return dailyForecastData.daily.data.slice(0,10)
+        return dailyForecastData.daily.data.slice(1,11)
 }
