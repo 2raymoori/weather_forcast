@@ -4,8 +4,8 @@ const curPlace = require("@/Utils/place.json")
 
 const options = {
         method: 'GET',
-        headers: {
-                'x-rapidapi-key': '8ecaf107fcmshc9b7613293c1a72p1519c9jsn18e93f8cb42b',
+        headers: { //                
+                'x-rapidapi-key': '',
                 'x-rapidapi-host': 'ai-weather-by-meteosource.p.rapidapi.com'
         }
 };
@@ -45,10 +45,9 @@ export const placeDetails = async(cityName:string)=>{
     const options = {
       method: 'GET',
       headers: {
-        'x-rapidapi-key': '8ecaf107fcmshc9b7613293c1a72p1519c9jsn18e93f8cb42b',
+        'x-rapidapi-key': '',
         'x-rapidapi-host': 'ai-weather-by-meteosource.p.rapidapi.com'
-      }
-    };
+      } };
     
     try {
         const response = await fetch(url, options);
