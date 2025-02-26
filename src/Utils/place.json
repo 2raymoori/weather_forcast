@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Berlin",
+    "place_id": "berlin",
+    "adm_area1": "Berlin",
+    "adm_area2": null,
+    "country": "Germany",
+    "lat": "52.52437N",
+    "lon": "13.41053E",
+    "timezone": "Europe/Berlin",
+    "type": "settlement"
+  },
+  {
+    "name": "Berlin",
+    "place_id": "berlin-5083330",
+    "adm_area1": "New Hampshire",
+    "adm_area2": "Coos",
+    "country": "United States of America",
+    "lat": "44.46867N",
+    "lon": "71.18508W",
+    "timezone": "America/New_York",
+    "type": "settlement"
+  },
+  {
+    "name": "Brunswick",
+    "place_id": "brunswick-4349706",
+    "adm_area1": "Maryland",
+    "adm_area2": "Frederick",
+    "country": "United States of America",
+    "lat": "39.31427N",
+    "lon": "77.62777W",
+    "timezone": "America/New_York",
+    "type": "settlement"
+  },
+  {
+    "name": "Berlin",
+    "place_id": "berlin-5245497",
+    "adm_area1": "Wisconsin",
+    "adm_area2": "Green Lake",
+    "country": "United States of America",
+    "lat": "43.96804N",
+    "lon": "88.94345W",
+    "timezone": "America/Chicago",
+    "type": "settlement"
+  },
+  {
+    "name": "North Canton",
+    "place_id": "north-canton",
+    "adm_area1": "Ohio",
+    "adm_area2": "Stark",
+    "country": "United States of America",
+    "lat": "40.87589N",
+    "lon": "81.40234W",
+    "timezone": "America/New_York",
+    "type": "settlement"
+  },
+  {
+    "name": "Berlín",
+    "place_id": "berlin-3587266",
+    "adm_area1": "Usulután",
+    "adm_area2": null,
+    "country": "Republic of El Salvador",
+    "lat": "13.5N",
+    "lon": "88.53333W",
+    "timezone": "America/El_Salvador",
+    "type": "settlement"
+  },
+  {
+    "name": "Berlin",
+    "place_id": "berlin-4348460",
+    "adm_area1": "Maryland",
+    "adm_area2": "Worcester",
+    "country": "United States of America",
+    "lat": "38.32262N",
+    "lon": "75.21769W",
+    "timezone": "America/New_York",
+    "type": "settlement"
+  },
+  {
+    "name": "Berlin",
+    "place_id": "berlin-4500771",
+    "adm_area1": "New Jersey",
+    "adm_area2": "Camden",
+    "country": "United States of America",
+    "lat": "39.79123N",
+    "lon": "74.92905W",
+    "timezone": "America/New_York",
+    "type": "settlement"
+  },
+  {
+    "name": "Land Berlin",
+    "place_id": "land-berlin",
+    "adm_area1": "Berlin",
+    "adm_area2": null,
+    "country": "Germany",
+    "lat": "52.5N",
+    "lon": "13.41667E",
+    "timezone": "Europe/Berlin",
+    "type": "administrative_area"
+  },
+  {
+    "name": "Berlin, Stadt",
+    "place_id": "berlin-stadt",
+    "adm_area1": "Berlin",
+    "adm_area2": null,
+    "country": "Germany",
+    "lat": "52.5233N",
+    "lon": "13.41377E",
+    "timezone": "Europe/Berlin",
+    "type": "administrative_area"
+  }
+]
